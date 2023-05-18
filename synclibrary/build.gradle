@@ -1,0 +1,115 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+sourceCompatibility = 11 // java 8
+targetCompatibility = 11
+
+task androidSourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+android {
+    namespace 'com.aomined.synclibrary'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures{
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.20"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //Corrutinas
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    implementation platform('com.google.firebase:firebase-bom:31.2.2')
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
+    //Toasty
+    implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    // Intuitive size dp
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+
+    implementation 'io.agora.rtc:voice-sdk:4.1.1'
+
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.aomined.synclibrary'
+                artifactId = 'final'
+                version = '1.0.01'
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'com.aomined.synclibrary'
+                artifactId = 'final-debug'
+                version = '1.0.01'
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Watch2Getter</string>
+    <string name="sdk_name">Watch2Getter</string>
+    <string name="welcome_watch2">Welcome to %s please, write your username to enter voice chat with friends</string>
+    <string name="save">SAVE</string>
+    <string name="username">Username</string>
+
+    <string name="loading_anim">loading_anim.json</string>
+    <string name="warn_anim">warn_error.json</string>
+
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="empty_username">Please select an username</string>
+    <string name="loading_user">Creating user…</string>
+    <string name="loading_sync_anim">loading_sync_anim.json</string>
+    <string name="w_join">Join</string>
+    <string name="w_createbtn">Create</string>
+    <string name="w_logot">Log out</string>
+    <string name="w_creating_room">Creating room…</string>
+    <string name="w_inroom">Room</string>
+    <string name="w_members">Members</string>
+    <string name="w_delete_room">Delete room</string>
+    <string name="w_invite_room">Invite members</string>
+    <string name="w_join_room">Join room</string>
+    <string name="w_join_room_upper">JOIN</string>
+    <string name="w_room_code">Room code</string>
+    <string name="w_joining_room">Joining in room…</string>
+    <string name="error_anim">error_anim.json</string>
+    <string name="w_please_put_code">Room code must not be empty</string>
+    <string name="w_invalid_roomcode">Room code is invalid, please verify</string>
+    <string name="w_code_copied">Copied code</string>
+    <string name="w_deleting_room">Deleting room…</string>
+    <string name="w_expulsing_member">Removing a member…</string>
+    <string name="w_i_removed_user">"Oh, you have been removed from the room. "</string>
+    <string name="w_host_disconnected">The host has disconnected.</string>
+    <string name="w_agora_engine_error">Something went wrong with voice call, error general.</string>
+    <string name="w_user_null_error">Oops, something went wrong… please login again</string>
+    <string name="w_vidwmodel_error">Something went wrong with sync vm</string>
+    <string name="w_mute_text">Mute</string>
+    <string name="w_unmute_text">Unmute</string>
+    <string name="w_loading_voice_sync">Connecting voice…</string>
+    <string name="w_chat_room">Chat</string>
+    <string name="w_write_here">Send messages here…</string>
+    <string name="w_send_chatmessage">SEND</string>
+    <string name="w_empty_message">Message must not be empty</string>
+    <string name="w_error_null_message">Something went wrong with the message</string>
+    <string name="w_sending_message">Sending…</string>
+    <string name="w_error_message_sending">We couldn\'t send this message, try again later</string>
+    <string name="w_empty_anim">empty_list.json</string>
+    <string name="w_no_messages_empty">This chat haven\'t messages, send your first message!</string>
+
+
+    <plurals name="time_seconds_ago">
+        <item quantity="one">%d second ago</item>
+        <item quantity="other">%d seconds ago</item>
+    </plurals>
+    <plurals name="time_minutes_ago">
+        <item quantity="one">%d minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <plurals name="time_hours_ago">
+        <item quantity="one">%d hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="time_days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+    <string name="time_yesterday">yesterday</string>
+    <string name="time_long_ago">a long time ago</string>
+    <string name="w_exit_from_room">You\'ve leaved this room</string>
+    <string name="w_leave_room">Leave room</string>
+    <string name="w_noid_video">Please select a video first</string>
+</resources>

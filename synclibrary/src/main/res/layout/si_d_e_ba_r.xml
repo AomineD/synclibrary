@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/backgroundParent"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/background_sidebar"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/_80sdp"
+        android:orientation="vertical"
+        android:id="@+id/mainMenu"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingStart="@dimen/_5sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/listMain"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/btnJoin"
+                android:background="@drawable/btn_color"
+                android:padding="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:gravity="start|center_vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    app:srcCompat="@drawable/join_b_tn"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12sdp"
+                    android:autoSizeMaxTextSize="@dimen/_12sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:autoSizeMinTextSize="@dimen/_9sdp"
+                    android:textColor="@color/text_btn_color"
+                    android:text="@string/w_join"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/btnCreate"
+                android:background="@drawable/btn_color"
+                android:padding="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:gravity="start|center_vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iconCreateRoom"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    app:srcCompat="@drawable/cre_ate_btn"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/textCreateRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:autoSizeMaxTextSize="@dimen/_12sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:autoSizeMinTextSize="@dimen/_9sdp"
+                    android:textColor="@color/text_btn_color"
+                    android:text="@string/w_createbtn"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/btnChatText"
+                android:visibility="gone"
+                android:background="@drawable/btn_color"
+                android:padding="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:gravity="start|center_vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iconChatText"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    app:srcCompat="@drawable/w_ch_at"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/textChatText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:autoSizeMaxTextSize="@dimen/_12sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:autoSizeMinTextSize="@dimen/_9sdp"
+                    android:textColor="@color/text_btn_color"
+                    android:text="@string/w_chat_room"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/btnMute"
+            android:visibility="gone"
+            android:background="@drawable/btn_color"
+            android:padding="@dimen/_3sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="start|center_vertical"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp">
+
+                <ImageView
+                    android:id="@+id/micIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/w_un_m_ut_e"
+                    app:tint="@color/text_btn_color" />
+
+                <ImageView
+                    android:id="@+id/ratioMic"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/w_un_m_ut_e"
+                    app:tint="@color/redColor" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/voiceLoadingAnim"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_fileName="@string/loading_sync_anim"
+                    />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/micTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textStyle="bold"
+                android:autoSizeMaxTextSize="@dimen/_12sdp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:autoSizeMinTextSize="@dimen/_9sdp"
+                android:textColor="@color/text_btn_color"
+                android:text="@string/w_mute_text"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/btnLogOut"
+            android:background="@drawable/btn_color"
+            android:padding="@dimen/_3sdp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="start|center_vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                app:srcCompat="@drawable/l_g_o_ut"
+                app:tint="@color/text_logout_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textStyle="bold"
+                android:autoSizeMaxTextSize="@dimen/_12sdp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:autoSizeMinTextSize="@dimen/_9sdp"
+                android:textColor="@color/text_logout_color"
+                android:text="@string/w_logot"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+        <View
+            android:id="@+id/lateralSide"
+            android:background="@color/white_translucid"
+            android:layout_toStartOf="@id/mainMenu"
+            android:layout_width="0.8dp"
+            android:layout_height="match_parent"/>
+
+    <LinearLayout
+            android:layout_width="@dimen/_160sdp"
+            android:orientation="vertical"
+            android:id="@+id/createMenu"
+            android:visibility="gone"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:layout_toStartOf="@id/mainMenu"
+            android:layout_height="match_parent">
+
+        <!-- Estado de creación del room y poder ver los integrantes, con esto quiere decir que cuando se crea el boton "create pasa a Room" -->
+
+        <LinearLayout
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/loadingLayout"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animOnCreate"
+                android:layout_width="@dimen/_45sdp"
+                app:lottie_loop="true"
+                app:lottie_fileName="@string/loading_sync_anim"
+                app:lottie_autoPlay="true"
+                android:layout_height="@dimen/_45sdp"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textLoadingCreate"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/text_btn_color"
+                android:textStyle="normal"
+                android:text="@string/w_creating_room"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal|center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:id="@+id/roomLayout"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/text_btn_color"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/w_inroom"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/white_translucid"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textStyle="normal"
+                android:textColor="@color/text_btn_color"
+                android:textSize="@dimen/_11sdp"
+                android:text="@string/w_members"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/recMembers"
+                android:layout_weight="1"
+                android:nestedScrollingEnabled="true"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/inviteRoomBtn"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/btn_color_c"
+                app:cardCornerRadius="@dimen/_2sdp"
+                app:cardElevation="@dimen/_1sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/inviteTv"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_btn_color"
+                    android:textSize="@dimen/_11sdp"
+                    android:text="@string/w_invite_room"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/deleteRoomBtn"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_3sdp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/btn_color_c"
+                app:cardCornerRadius="@dimen/_2sdp"
+                app:cardElevation="@dimen/_1sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_btn_color"
+                    android:textSize="@dimen/_11sdp"
+                    android:text="@string/w_delete_room"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/joinMenu"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/mainMenu"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:visibility="gone">
+
+            <!-- Estado de creación del room y poder ver los integrantes, con esto quiere decir que cuando se crea el boton "create pasa a Room" -->
+
+            <LinearLayout
+                android:id="@+id/joinLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/_7sdp"
+                android:visibility="gone">
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animInJoin"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="@string/loading_sync_anim"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:id="@+id/textLoadingJoin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@string/w_joining_room"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_btn_color"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/joinLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/w_join_room"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_btn_color"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@color/white_translucid" />
+
+                <EditText
+                    android:id="@+id/editTextRoomCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:hint="@string/w_room_code" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/joinRoomBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:cardBackgroundColor="@color/btn_color_c"
+                    app:cardCornerRadius="@dimen/_2sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/w_join_room_upper"
+                        android:textAlignment="center"
+                        android:textColor="@color/text_btn_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/_160sdp"
+            android:orientation="vertical"
+            android:id="@+id/chatMenu"
+            android:visibility="gone"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingStart="@dimen/_5sdp"
+            android:layout_toStartOf="@id/mainMenu"
+            android:layout_height="match_parent">
+
+            <!-- Chat layout y loagind chat -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                android:visibility="gone"
+                android:id="@+id/chatLayout"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/emptyChat"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content">
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animOnChat"
+                    android:layout_width="@dimen/_95sdp"
+                    app:lottie_loop="true"
+                    app:lottie_fileName="@string/w_empty_anim"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    app:lottie_autoPlay="true"
+                    android:layout_height="@dimen/_95sdp"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textEmptyChat"
+                    android:textSize="@dimen/_11sdp"
+                    android:textColor="@color/text_btn_color"
+                    android:textStyle="normal"
+                    android:text="@string/w_no_messages_empty"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal|center"
+                    />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/recMessages"
+                    android:visibility="gone"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="true"
+                    />
+
+                <EditText
+                    android:id="@+id/editTextMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white_light"
+                    android:hint="@string/w_write_here"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/sendChatBtn"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    app:cardUseCompatPadding="true"
+                    app:cardBackgroundColor="@color/btn_color_c"
+                    app:cardCornerRadius="@dimen/_2sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textBtnSend"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_btn_color"
+                        android:textSize="@dimen/_11sdp"
+                        android:text="@string/w_send_chatmessage"
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/offScreenSd"
+        android:layout_toStartOf="@id/backgroundParent"
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+
+</RelativeLayout>

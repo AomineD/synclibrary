@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/messageIncomingLayout"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/avatarUser"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginEnd="1dp"
+            app:srcCompat="@drawable/pl_ac_e_hold_er_usr"
+            />
+
+        <LinearLayout
+            android:id="@+id/bubbleBack"
+            android:layout_width="match_parent"
+            android:background="@drawable/bubble_incoming"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingTop="@dimen/_1sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTvIncoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_9sdp"
+                android:textColor="@color/white_light"
+                android:textStyle="bold"
+                android:text="Diego"
+                />
+
+            <TextView
+                android:id="@+id/messageTvIncoming"
+                android:layout_marginTop="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:text="Hola que tal como estás yo bien y tu bueno este mensaje es un poco largo asi que vamos a seguir haciendo esto mas largo un poquito"
+                />
+
+            <TextView
+                android:id="@+id/hourTvIncoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_6sdp"
+                android:textColor="@color/white"
+                android:textStyle="italic"
+                android:layout_gravity="end"
+                android:text="08:30pm"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/messageOutcomingLayout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/bubble_outgoing"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_17sdp"
+            android:paddingTop="@dimen/_1sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/messageTvOutcoming"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_8sdp"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:text="Hola que tal como estás yo bien y tu bueno este mensaje es un poco largo asi que vamos a seguir haciendo esto mas largo un poquito"
+                />
+
+            <TextView
+                android:id="@+id/hourTvOutcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_6sdp"
+                android:textColor="@color/white"
+                android:textStyle="italic"
+                android:layout_gravity="end"
+                android:text="08:30pm"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

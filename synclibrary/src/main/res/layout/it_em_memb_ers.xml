@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/background_color"
+    android:padding="@dimen/_1sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/userStatus"
+            android:layout_width="@dimen/_5sdp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/w_online_status"
+            />
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:id="@+id/tvName"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:textStyle="normal"
+            android:textColor="@color/text_btn_color"
+            android:textSize="@dimen/_11sdp"
+            android:text="@string/w_members"
+            android:layout_gravity="center_vertical"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:id="@+id/hostIcon"
+            android:padding="@dimen/_6sdp"
+            app:srcCompat="@drawable/hos_t_ico_n"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            app:tint="@color/text_delete_color"
+            android:id="@+id/expulseIcon"
+            android:padding="@dimen/_6sdp"
+            app:srcCompat="@drawable/b_a_n_ic"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_translucid"
+        />
+</LinearLayout>
