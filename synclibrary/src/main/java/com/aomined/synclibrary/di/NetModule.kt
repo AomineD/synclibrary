@@ -14,10 +14,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object NetModule {
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrof(): Retrofit {
          val interceptor = HttpLoggingInterceptor()
          interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
@@ -33,7 +33,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiClient(retrofit: Retrofit):ApiInterface{
+    fun provApiClient(retrofit: Retrofit):ApiInterface{
         return retrofit.create(ApiInterface::class.java)
     }
 }

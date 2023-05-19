@@ -10,10 +10,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ServiceModule {
+object ServicesModule {
     @Singleton
     @Provides
-    fun provideRedServices(apiInterface: ApiInterface): ApiService {
+    fun provideInterfaceApi(apiInterface: ApiInterface): ApiService {
         return ApiService(apiInterface)
     }
 }
