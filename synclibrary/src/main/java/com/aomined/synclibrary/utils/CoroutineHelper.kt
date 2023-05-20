@@ -44,8 +44,5 @@ object CoroutineHelper {
         Log.d("Safe", "-------------------------------------------------------------------")
     }
 
-    fun String.isValidRoomCode(): Boolean {
-        val regex = "^jw-.*-room$".toRegex()
-        return this.matches(regex)
-    }
+
 }

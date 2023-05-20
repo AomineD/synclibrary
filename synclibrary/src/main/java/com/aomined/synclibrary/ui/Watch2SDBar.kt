@@ -30,12 +30,12 @@ import com.aomined.synclibrary.ui.adapter.MessageChatAdapter
 import com.aomined.synclibrary.ui.adapter.UserSessionAdapter
 import com.aomined.synclibrary.ui.viewmodel.SyncViewModel
 import com.aomined.synclibrary.utils.CoroutineHelper.ioSafe
-import com.aomined.synclibrary.utils.CoroutineHelper.isValidRoomCode
 import com.aomined.synclibrary.utils.CoroutineHelper.main
 import com.aomined.synclibrary.utils.UtilsHelper.getDrawableCompat
 import com.aomined.synclibrary.utils.UtilsHelper.getString
 import com.aomined.synclibrary.utils.UtilsHelper.hasDrawable
 import com.aomined.synclibrary.utils.UtilsHelper.hideKeyboard
+import com.aomined.synclibrary.utils.UtilsHelper.isValidRoomCode
 import com.aomined.synclibrary.utils.UtilsHelper.setTextToChildTv
 import com.aomined.synclibrary.utils.UtilsHelper.setTint
 import dagger.hilt.android.AndroidEntryPoint
@@ -132,6 +132,11 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
         valueAnimator.start()
     }
 
+    fun joinInRoom(roomCode:String){
+        binding.btnJoin.performClick()
+        binding.editTextRoomCode.setText(roomCode)
+        binding.joinRoomBtn.performClick()
+    }
     private fun configClicks() = with(binding){
         btnJoin.setOnClickListener {
             resetBtns()
@@ -602,7 +607,7 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
                     binding.micIcon.setImageDrawable(context.getDrawableCompat(if(currentState) R.drawable.w_m_ut_e else R.drawable.w_un_m_ut_e))
                     binding.micTextView.setText(if(currentState) R.string.w_unmute_text else R.string.w_mute_text)
                     //Log.e(TAG, "enableMicFunctions: va a ser rojo $currentState" )
-                    binding.micIcon.setTint( if(currentState) R.color.redColor else R.color.text_btn_color)
+                    binding.micIcon.setTint( if(currentState) R.color.w_redcolor else R.color.text_btn_color)
                     //binding.ratioMic.isVisible = !currentState
                 }
             }else{

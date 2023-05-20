@@ -3,6 +3,7 @@ package com.aomined.synclibrary.ui
 import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.TransitionDrawable
+import android.net.Uri
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +21,9 @@ import com.aomined.synclibrary.TAG
 import com.aomined.synclibrary.Watch2Application
 import com.aomined.synclibrary.databinding.CustOMW2gettbtnBinding
 import com.aomined.synclibrary.listeners.UserListener
+import com.aomined.synclibrary.utils.CoroutineHelper.main
+import com.aomined.synclibrary.utils.UtilsHelper.isValidRoomCode
+import com.aomined.synclibrary.utils.UtilsHelper.toastWarning
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import es.dmoral.toasty.Toasty
@@ -46,6 +50,22 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         wSdBar!!.setVideoConfig(videoId, videoOption)
     }
 
+    var roomToJoin = ""
+    fun joinRoom(pathData:Uri){
+        pathData.lastPathSegment?.let {
+            if(it.isValidRoomCode()) {
+                roomToJoin = it
+                main {
+                    this@Watch2GetterButton.performClick()
+                }
+            }else{
+                context.toastWarning(context.getString(R.string.w_invalid_roomcode))
+            }
+        } ?: run {
+            context.toastWarning(context.getString(R.string.w_user_null_error))
+        }
+    }
+
     fun click(onClickListener: OnClickListener){
         setOnClickListener {
             if(isLoading) return@setOnClickListener
@@ -67,6 +87,12 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
                             setIconState()
                             //abrir ui para ver party o crear
                             openSideBar()
+                            main {
+                                if(roomToJoin.isNotEmpty()){
+                                    wSdBar!!.joinInRoom(roomToJoin)
+                                    roomToJoin = ""
+                                }
+                            }
                         }
 
                         override fun onError(e: Exception) {

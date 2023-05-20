@@ -161,7 +161,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/w_un_m_ut_e"
-                    app:tint="@color/redColor" />
+                    app:tint="@color/w_redcolor" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/voiceLoadingAnim"

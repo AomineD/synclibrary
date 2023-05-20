@@ -9,7 +9,7 @@
     <color name="text_color">#818698</color>
 
     <color name="white_translucid">#72F3F3F3</color>
-    <color name="redColor">#EC3A3A</color>
+    <color name="w_redcolor">#EC3A3A</color>
 
     <color name="accent">#0081C9</color>
 
@@ -19,7 +19,8 @@
         <item name="colorControlHighlight">@color/accent</item>
     </style>
 
-    <color name="green_online">#35B511</color>
+    <color name="w_green_online">#35B511</color>
+    <color name="w_yellow">#ECE11E</color>
 
     <dimen name="none_width">@dimen/_80sdp</dimen>
     <dimen name="create_width">@dimen/_240sdp</dimen>

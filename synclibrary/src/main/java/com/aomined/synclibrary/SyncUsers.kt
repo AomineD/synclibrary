@@ -6,9 +6,7 @@ import android.os.Looper
 import android.util.Log
 import com.aomined.synclibrary.agorautils.VoiceSync
 import com.aomined.synclibrary.chat.ChatManager
-import com.aomined.synclibrary.data.SyncSession
-import com.aomined.synclibrary.data.UserSession
-import com.aomined.synclibrary.data.hostIsOnline
+import com.aomined.synclibrary.data.*
 import com.aomined.synclibrary.listeners.SessionListener
 import com.aomined.synclibrary.listeners.SyncSessionListener
 import com.aomined.synclibrary.listeners.UserListener
@@ -397,6 +395,28 @@ class SyncUsers {
     }
 
 
+    fun setImReady(isReady:Boolean, callback: (Boolean) -> Unit){
+        if(!isConnected() || currentSessionIn == null) return
+
+        currentSessionIn!!.memberList?.forEach{
+            if(it.id == getMyUserId()){
+                it.setReady(isReady)
+                it.active()
+            }
+        }
+
+        db.collection("syncSessions")
+            .document(currentSessionIn!!.sessionId.getRoomCodeFrom())
+            .update(mapOf(
+                "memberList" to currentSessionIn!!.memberList
+            )).addOnSuccessListener {
+                callback(true)
+                Log.e(TAG, "setImReady: isReady" )
+            }.addOnFailureListener {
+                 Log.e(TAG, "setImReady: $it" )
+                callback(false)
+            }
+    }
     fun onDisconnectDevice(forceDelete:Boolean = false){
 
         if(!initialized){

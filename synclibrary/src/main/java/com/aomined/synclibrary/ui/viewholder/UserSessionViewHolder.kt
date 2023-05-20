@@ -29,8 +29,20 @@ class UserSessionViewHolder(private val binding: ItEmMembErsBinding) :
 
         val context = binding.hostIcon.context
 
-        val drawableStatus = ContextCompat.getDrawable(context, if(userSession.isOnline()) R.drawable.w_online_status else R.drawable.w_offline_status )
-        binding.userStatus.setImageDrawable(drawableStatus)
+        if(userSession.readyForPlay) {
+            val drawableStatus = ContextCompat.getDrawable(
+                context,
+                if (userSession.isOnline()) R.drawable.w_online_status else R.drawable.w_offline_status
+            )
+            binding.userStatus.setImageDrawable(drawableStatus)
+        }else{
+            val drawableStatus = ContextCompat.getDrawable(
+                context,
+                 R.drawable.w_not_ready_status
+            )
+            binding.userStatus.setImageDrawable(drawableStatus)
+        }
+
         val myUserId = SyncUsers.getInstance().getMyUserId()
         binding.tvName.setTextColor(ContextCompat.getColor(context, if(userSession.id == myUserId) R.color.accent else R.color.white ))
         val drawableToUse =  ContextCompat.getDrawable(context, if(userSession.id == hostId) R.drawable.hos_t_ico_n else R.drawable.u_s_er_icon)

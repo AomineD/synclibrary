@@ -3,12 +3,13 @@ package com.aomined.synclibrary.data
 import android.util.Log
 import com.aomined.synclibrary.TAG
 import com.aomined.synclibrary.onlineThreshold
+import com.google.firebase.firestore.auth.User
 
 data class UserSession(
     val id:String,
     val name:String,
     val signUpMillis:Long? = null,
-    val lastOnline: Long = 0,
+    var lastOnline: Long = 0,
     val uniqueId:Int = -1,
     var readyForPlay:Boolean = false,
 ){
@@ -16,8 +17,10 @@ data class UserSession(
         // Inicializa manualmente los campos de la clase que no se inicializaron en el constructor primario
     }
 }
-
-fun UserSession.setReady(){
+fun UserSession.active(){
+    lastOnline = System.currentTimeMillis()
+}
+fun UserSession.setReady(isReady:Boolean) {
     this.readyForPlay = true
 }
 

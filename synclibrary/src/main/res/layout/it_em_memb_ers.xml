@@ -19,7 +19,7 @@
             android:layout_marginEnd="@dimen/_3sdp"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/w_online_status"
+            app:srcCompat="@drawable/w_not_ready_status"
             />
 
         <TextView

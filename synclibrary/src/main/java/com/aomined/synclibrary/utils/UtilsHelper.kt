@@ -24,6 +24,7 @@ import com.aomined.synclibrary.data.UserSession
 import com.google.common.reflect.TypeToken
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.gson.Gson
+import es.dmoral.toasty.Toasty
 import java.util.*
 import kotlin.reflect.full.memberProperties
 
@@ -65,6 +66,11 @@ object UtilsHelper {
         val regex = "^jw-(.*)-room$".toRegex()
         val matchResult = regex.matchEntire(this)
         return matchResult?.groupValues?.getOrNull(1) ?: ""
+    }
+
+    fun String.isValidRoomCode(): Boolean {
+        val regex = "^jw-.*-room$".toRegex()
+        return this.matches(regex)
     }
 
     fun ImageView.hasDrawable(drawableResId: Int): Boolean {
@@ -181,5 +187,13 @@ object UtilsHelper {
         // Convertir la diferencia de tiempo a segundos
         val differenceInSeconds = (this.timestamp - currentTimeVideo) / 1000
         return differenceInSeconds <= 6
+    }
+
+    fun Context.toastWarning(message:String){
+        Toasty.warning(this, message).show()
+    }
+
+    fun Context.toastError(message:String){
+        Toasty.error(this, message).show()
     }
 }
