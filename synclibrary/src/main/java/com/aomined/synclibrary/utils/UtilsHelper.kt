@@ -3,6 +3,7 @@ package com.aomined.synclibrary.utils
 import android.Manifest
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Bitmap
@@ -18,6 +19,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.aomined.synclibrary.R
 import com.aomined.synclibrary.TAG
 import com.aomined.synclibrary.data.SyncSession
 import com.aomined.synclibrary.data.UserSession
@@ -195,5 +197,17 @@ object UtilsHelper {
 
     fun Context.toastError(message:String){
         Toasty.error(this, message).show()
+    }
+
+    fun Context.inviteFriend(token: String) {
+        val url = "https://playdomapp.top/party/$token"
+
+        val compartirIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.w_invite_str, url))
+            type = "text/plain"
+        }
+
+        startActivity(Intent.createChooser(compartirIntent, getString(R.string.w_sharevia)))
     }
 }

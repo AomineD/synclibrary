@@ -35,6 +35,7 @@ import com.aomined.synclibrary.utils.UtilsHelper.getDrawableCompat
 import com.aomined.synclibrary.utils.UtilsHelper.getString
 import com.aomined.synclibrary.utils.UtilsHelper.hasDrawable
 import com.aomined.synclibrary.utils.UtilsHelper.hideKeyboard
+import com.aomined.synclibrary.utils.UtilsHelper.inviteFriend
 import com.aomined.synclibrary.utils.UtilsHelper.isValidRoomCode
 import com.aomined.synclibrary.utils.UtilsHelper.setTextToChildTv
 import com.aomined.synclibrary.utils.UtilsHelper.setTint
@@ -426,11 +427,12 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
 
         inviteRoomBtn.setOnClickListener {
             val code = session.sessionId
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            /*val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("label", code)
             clipboard.setPrimaryClip(clip)
             inviteTv.setText(R.string.w_code_copied)
-            inviteRoomBtn.isEnabled = false
+            inviteRoomBtn.isEnabled = false*/
+            context.inviteFriend(code)
         }
 
         SyncUsers.getInstance()

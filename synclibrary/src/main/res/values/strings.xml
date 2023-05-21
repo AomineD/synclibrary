@@ -71,4 +71,6 @@
     <string name="w_exit_from_room">You\'ve leaved this room</string>
     <string name="w_leave_room">Leave room</string>
     <string name="w_noid_video">Please select a video first</string>
+    <string name="w_invite_str">Join my WatchParty: %s</string>
+    <string name="w_sharevia">Share link via:</string>
 </resources>
