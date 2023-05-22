@@ -41,6 +41,14 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         }
     }
 
+    private var openCallback:() -> Unit = {
+
+    }
+
+    fun setOpenCallback(openCallback:() -> Unit){
+        this.openCallback = openCallback
+    }
+
     fun setVideo(videoId:String, videoOption:String = ""){
         if(wSdBar == null){
             Log.e(TAG, "Wsdbar: failed to config video" )
@@ -192,6 +200,7 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         wSdBar?.let { wBar ->
             YoYo.with(Techniques.SlideInRight)
                 .onStart {
+                    openCallback()
                     wBar.isVisible = true
                 }
                 .duration(350)
