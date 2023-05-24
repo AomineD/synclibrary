@@ -41,11 +41,11 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         }
     }
 
-    private var openCallback:() -> Unit = {
+    private var openCallback:(Boolean) -> Unit = {
 
     }
 
-    fun setOpenCallback(openCallback:() -> Unit){
+    fun setOpenCallback(openCallback:(Boolean) -> Unit){
         this.openCallback = openCallback
     }
 
@@ -173,7 +173,7 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         primaryRoot?.let {
            // Log.e(TAG, "openSideBar: ${primaryRoot.getChildAt(0).javaClass.simpleName}" )
             primaryRoot.addView(wSdBar)
-            showSdBarAnim()
+            showSdBarAnim(true)
         }
 
 
@@ -196,11 +196,11 @@ class Watch2GetterButton(context: Context, attrs: AttributeSet):RelativeLayout(c
         return parent
     }
 
-    private fun showSdBarAnim(){
+    private fun showSdBarAnim(isFirstTime:Boolean = false){
         wSdBar?.let { wBar ->
             YoYo.with(Techniques.SlideInRight)
                 .onStart {
-                    openCallback()
+                    openCallback(isFirstTime)
                     wBar.isVisible = true
                 }
                 .duration(350)

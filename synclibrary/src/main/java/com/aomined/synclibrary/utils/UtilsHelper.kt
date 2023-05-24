@@ -187,7 +187,7 @@ object UtilsHelper {
 
     fun SyncSession.isSync(currentTimeVideo: Long): Boolean {
         // Convertir la diferencia de tiempo a segundos
-        val differenceInSeconds = (this.timestamp - currentTimeVideo) / 1000
+        val differenceInSeconds = (this.videoTimestamp - currentTimeVideo) / 1000
         return differenceInSeconds <= 6
     }
 
