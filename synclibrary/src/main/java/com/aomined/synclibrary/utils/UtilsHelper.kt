@@ -28,6 +28,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.gson.Gson
 import es.dmoral.toasty.Toasty
 import java.util.*
+import kotlin.math.abs
 import kotlin.reflect.full.memberProperties
 
 
@@ -187,7 +188,7 @@ object UtilsHelper {
 
     fun SyncSession.isSync(currentTimeVideo: Long): Boolean {
         // Convertir la diferencia de tiempo a segundos
-        val differenceInSeconds = (this.videoTimestamp - currentTimeVideo) / 1000
+        val differenceInSeconds = abs(this.videoTimestamp - currentTimeVideo) / 1000
         return differenceInSeconds <= 6
     }
 

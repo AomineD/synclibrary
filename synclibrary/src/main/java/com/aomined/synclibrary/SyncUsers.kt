@@ -78,6 +78,7 @@ class SyncUsers {
 
         user?.let {
             loginWithFirestore(user, {
+                initializedFirst = true
                 initialized = true
                 UserStorage.getInstance(context).saveUserSession(it)
                 listener.onSuccessLogin()
@@ -88,6 +89,7 @@ class SyncUsers {
         } ?: run {
             val pop = PopUpInit(context)
             pop.showInit { usr ->
+                initializedFirst = true
                 val newUser = UserSession(currentUserId, usr)
                 loginWithFirestore(newUser, {
                     pop.hideLoading()
@@ -102,9 +104,17 @@ class SyncUsers {
                     listener.onError(it)
                 })
             }
+
+            pop.setOnDismissListener {
+                if(!initializedFirst){
+                    listener.onError(Exception("Dismissed"))
+                }
+            }
         }
 
     }
+
+    var initializedFirst = false
 
     private val limitHostToDisconnect = 155000
 

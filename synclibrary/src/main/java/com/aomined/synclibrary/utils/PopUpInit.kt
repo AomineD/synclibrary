@@ -90,4 +90,6 @@ class PopUpInit(context:Context):AlertDialog(context) {
             .playOn(binding.errorText)
     }
 
+
+
 }
