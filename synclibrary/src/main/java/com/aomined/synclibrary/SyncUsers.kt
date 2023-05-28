@@ -331,7 +331,7 @@ class SyncUsers {
                         listener.onSuccess(session)
 
                         VoiceSync.getInstance().joinChannel(sessionId){
-                            Log.e(TAG, "joinSyncSession response: $it" )
+                            Log.e("VOICE", "joinSyncSession response: $it" )
                             listener.onVoiceStateChanged(it)
                         }
                         watchListener.onJoinedSession(currentSessionIn!!)
@@ -371,7 +371,7 @@ class SyncUsers {
                         listener.onSuccess(updatedSession)
 
                         VoiceSync.getInstance().joinChannel(sessionId){
-                            Log.e(TAG, "joinSyncSession response: $it" )
+                            Log.e("VOICE", "joinSyncSession response: $it" )
                             listener.onVoiceStateChanged(it)
                         }
                         watchListener.onJoinedSession(currentSessionIn!!)

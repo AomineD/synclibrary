@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import com.aomined.synclibrary.R
-import com.aomined.synclibrary.TAG
 import com.aomined.synclibrary.UserStorage
 import com.aomined.synclibrary.data.StatusSync
 import com.aomined.synclibrary.data.SyncResponse
@@ -15,6 +14,7 @@ import io.agora.rtc2.*
 
 class VoiceSync(private val context: Context) {
 
+    val TAG = "VOICE"
     companion object{
         @SuppressLint("StaticFieldLeak")
         private lateinit var instance:VoiceSync
