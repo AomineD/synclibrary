@@ -22,7 +22,7 @@ fun SyncSession.iamInThisRoom(): Boolean {
 
 fun SyncSession.hostIsOnline():Boolean{
     memberList?.forEach { user ->
-        Log.e("MAIN", "hostIsOnline: host? ${user.id == hostId} userOnline? ${user.isOnline()}" )
+        //Log.e("MAIN", "hostIsOnline: host? ${user.id == hostId} userOnline? ${user.isOnline()}" )
         if(user.id == hostId && user.isOnline()){
             return true
         }

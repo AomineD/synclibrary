@@ -68,19 +68,19 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSessionUpdated(updated: SyncSession) {
-                Log.e(TAG, "onSessionUpdated: aja ${updated.videoTimestamp} - ${updated.isPaused}" )
+              //  Log.e(TAG, "onSessionUpdated: aja ${updated.videoTimestamp} - ${updated.isPaused}" )
 
                 currentSyncMillis = updated.videoTimestamp
 
                 if(!updated.isPaused && !SyncUsers.getInstance().isHost() && isReady && !isPlaying){
-                        Log.e(TAG, "onSessionUpdated: is not paused!" )
+                //        Log.e(TAG, "onSessionUpdated: is not paused!" )
                         playPauseVideo()
                 }else if(updated.isPaused && !SyncUsers.getInstance().isHost() && isReady && isPlaying){
                     playPauseVideo()
                 }else if(!updated.isPaused && !SyncUsers.getInstance().isHost() && isReady && isPlaying){
 
                     if(!updated.isSync(currentMillis)){
-                        Log.e(TAG, "onSessionUpdated: ${updated.videoTimestamp} - $currentMillis" )
+                  //      Log.e(TAG, "onSessionUpdated: ${updated.videoTimestamp} - $currentMillis" )
                         main {
                             binding.videoView.seekTo(currentSyncMillis.toInt() + 1000)
                         }
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             //Log.e(TAG, "onCreate: CLICK ${SyncUsers.getInstance().isHost()} && $isReady" )
             if(isReady && SyncUsers.getInstance().isHost()){
                 playPauseVideo()
-                Log.e(TAG, "isPlaying: $isPlaying" )
+              //  Log.e(TAG, "isPlaying: $isPlaying" )
                 SyncUsers.getInstance().syncVideoState(currentMillis, !isPlaying)
             }
         }
@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity() {
         binding.videoView.setVideoURI(videoUri)
         binding.videoView.setOnPreparedListener { _: MediaPlayer ->
             //binding.videoView.start()
-            Log.e(TAG, "initVideo: ready el video" )
+          //  Log.e(TAG, "initVideo: ready el video" )
             isReady = true
             if(currentMillis > 0 && SyncUsers.getInstance().getCurrentSession() != null && !SyncUsers.getInstance().getCurrentSession()!!.isPaused){
                 playPauseVideo()

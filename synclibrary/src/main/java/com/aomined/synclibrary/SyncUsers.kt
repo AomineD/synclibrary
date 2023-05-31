@@ -249,7 +249,7 @@ class SyncUsers {
 
             if (snapshot != null && snapshot.exists()) {
                 // Obtener los datos de la sesión
-                Log.e(TAG, "listenForSessionChanges: ${snapshot.data}" )
+             //   Log.e(TAG, "listenForSessionChanges: ${snapshot.data}" )
                 val session = snapshot.toSyncSession()
 
                 // Verificar si la lista de miembros de la sesión no es nula y contiene más de un elemento
@@ -555,6 +555,7 @@ class SyncUsers {
                 VoiceSync.getInstance().leaveChannel()
                 ChatManager.getInstance()
                     .deleteAnyMineRoom(sessionId.getRoomCodeFrom())
+                listenerOnSession?.remove()
 
             }.addOnFailureListener {
                 Log.e(TAG, "deleteRoom: ${it.message}" )

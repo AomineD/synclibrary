@@ -118,7 +118,7 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
             ViewType.CHAT -> resources.getDimensionPixelSize(R.dimen.create_width)
         }
 
-        //Log.e(TAG, "setParentWidth: ${viewType.name} - $width - ${binding.backgroundParent.width}" )
+        Log.e(TAG, "setParentWidth: ${viewType.name} - $width - ${binding.backgroundParent.width}" )
         val currentWidth = binding.backgroundParent.width
         val valueAnimator = ValueAnimator.ofInt(currentWidth, width)
         valueAnimator.duration = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
@@ -127,7 +127,6 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
             val value = animator.animatedValue as Int
             binding.backgroundParent.layoutParams.width = value
             binding.backgroundParent.requestLayout()
-          //  Log.e(TAG, "setParentWidth: yes on $value" )
         }
 
         valueAnimator.start()
@@ -159,8 +158,12 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
 
         btnLogOut.setOnClickListener {
             SyncUsers.getInstance().logOut()
+            listMessage.clear()
+            memberList.clear()
+            abandonedRoom()
             watch2GetterButton.hideSdBarAnim()
             watch2GetterButton.setIconState()
+
         }
 
         offScreenSd.setOnClickListener {
@@ -442,7 +445,7 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
                 }
 
                 override fun onSessionUpdated(updated: SyncSession) {
-                    Log.e(TAG, "onSessionUpdated: updated!" )
+                   // Log.e(TAG, "onSessionUpdated: updated!" )
                     syncRoomIfNot(updated)
                     listener.onSessionUpdated(updated)
                 }
@@ -453,7 +456,7 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
                 }
 
                 override fun onSessionDestroyed() {
-                    if(SyncUsers.getInstance().isHost()) return
+                    if(SyncUsers.getInstance().isHost() || !SyncUsers.getInstance().isConnected()) return
 
                     main {
                         roomLayout.isVisible = false
@@ -480,7 +483,6 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
                 setLoadingInRoom(true, R.string.w_host_disconnected, R.string.warn_anim, false)
                 ioSafe {
                     delay(2000)
-                    //Log.e(TAG, "syncRoomIfNot: ejecuta ahora" )
                     main{
                         //  setLoadingInRoom(false, R.string.w_creating_room)
                         abandonedRoom()
@@ -495,7 +497,6 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
                 setLoadingInRoom(true, R.string.w_i_removed_user, R.string.warn_anim, false)
                 ioSafe {
                     delay(2000)
-                    //Log.e(TAG, "syncRoomIfNot: ejecuta ahora" )
                     main{
                       //  setLoadingInRoom(false, R.string.w_creating_room)
                         abandonedRoom()
@@ -590,6 +591,7 @@ class Watch2SDBar(context: Context):RelativeLayout(context) {
     private fun abandonedRoom() = with(binding){
         resetLoadingMenuCreation()
         enterInRoom(false)
+        //Log.e(TAG, "abandonedRoom: calling resetMenus" )
         resetMenus(needCalculateWidth = true, clearSelected = true)
         isLoadingJoin = false
         joinLoading.isVisible = false
