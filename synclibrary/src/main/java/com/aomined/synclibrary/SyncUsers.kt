@@ -106,6 +106,7 @@ class SyncUsers {
             }
 
             pop.setOnDismissListener {
+                Log.e(TAG, "initSystem: ajajaj $initializedFirst" )
                 if(!initializedFirst){
                     listener.onError(Exception("Dismissed"))
                 }
@@ -662,6 +663,7 @@ class SyncUsers {
         onDisconnectDevice()
         currentUserId = ""
         initialized = false
+        initializedFirst = false
         UserStorage.getInstance().clearData()
     }
 }

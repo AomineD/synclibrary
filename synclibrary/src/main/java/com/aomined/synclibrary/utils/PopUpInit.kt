@@ -1,6 +1,7 @@
 package com.aomined.synclibrary.utils
 
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -53,6 +54,11 @@ class PopUpInit(context:Context):AlertDialog(context) {
             }
 
         }
+    }
+
+    override fun setOnDismissListener(listener: DialogInterface.OnDismissListener?) {
+        super.setOnDismissListener(listener)
+
     }
 
     private fun showLoading(){

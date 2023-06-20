@@ -43,7 +43,7 @@ open class Watch2Application : Application(), Application.ActivityLifecycleCallb
     }
 
 
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+    override open fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         // Se llama cuando se crea una Activity
     }
 
