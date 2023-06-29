@@ -1,10 +1,12 @@
 package com.aomined.synclibrary.di
 
+import android.content.Context
 import com.aomine.playdedeapi.api.ApiInterface
 import com.aomined.synclibrary.SyncUsers.Companion.baseUrl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,9 +17,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetModule {
-    @Singleton
+
     @Provides
-    fun provideRetrof(): Retrofit {
+    fun providRetrof(appContext:Context): Retrofit {
          val interceptor = HttpLoggingInterceptor()
          interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
