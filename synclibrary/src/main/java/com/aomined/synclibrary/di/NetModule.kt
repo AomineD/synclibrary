@@ -17,25 +17,19 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetModule {
-
+    @Singleton
     @Provides
-    fun providRetrof(): Retrofit {
-         val interceptor = HttpLoggingInterceptor()
-         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+    fun provApiClient():ApiInterface{
+
         val client = OkHttpClient.Builder()
-                 .addInterceptor(interceptor)
             .build()
 
-        return Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-    }
 
-    @Singleton
-    @Provides
-    fun provApiClient(retrofit: Retrofit):ApiInterface{
         return retrofit.create(ApiInterface::class.java)
     }
 }
