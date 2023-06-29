@@ -19,7 +19,7 @@ import javax.inject.Singleton
 object NetModule {
 
     @Provides
-    fun providRetrof(appContext:Context): Retrofit {
+    fun providRetrof(): Retrofit {
          val interceptor = HttpLoggingInterceptor()
          interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
